@@ -1,10 +1,10 @@
 //this code is an example of how I add to the DOM
 
-const para = document.createElement('p')
-const node = document.createTextNode('Where I want to display Library:')
-para.appendChild(node)
-const element = document.getElementById('div1')
-element.appendChild(para)
+// const para = document.createElement('p')
+// const node = document.createTextNode('Where I want to display Library:')
+// para.appendChild(node)
+// const element = document.getElementById('div1')
+// element.appendChild(para)
 
 //I want to display this data on the page without manually coding html
 //this displays the title in the DOM as a placeholder
@@ -27,6 +27,8 @@ function Book(title, author, pages, read) {
   this.read = read
 }
 
+// function form() {}
+
 function addBookToLibrary() {
   let title = 'xavier'
   let author = 'xavier2'
@@ -36,4 +38,25 @@ function addBookToLibrary() {
 }
 
 addBookToLibrary()
-console.log(myLibrary)
+const title = myLibrary.title
+console.log(title);
+const newLib = JSON.stringify(myLibrary)
+const para = document.createElement('p')
+const node = document.createTextNode(newLib)
+para.appendChild(node)
+const element = document.getElementById('div1')
+element.appendChild(para)
+
+console.log(newLib)
+
+// let test = document.getElementById('titleContent').textContent
+// console.log(test)
+
+function logSubmit(event) {
+  log.textContent = `Form Submitted! Time stamp: ${event.timeStamp}`
+  event.preventDefault()
+}
+
+const form = document.getElementById('form')
+const log = document.getElementById('log')
+form.addEventListener('submit', logSubmit)
